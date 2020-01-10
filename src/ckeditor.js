@@ -28,20 +28,30 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
+import Font from '@ckeditor/ckeditor5-font/src/font';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
+import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
+import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Title from '@ckeditor/ckeditor5-heading/src/title';
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount';
+export default class ClassicEditor extends ClassicEditorBase { }
 
-export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
+	Base64UploadAdapter,
 	Essentials,
-	UploadAdapter,
 	Autoformat,
 	Bold,
 	Italic,
 	BlockQuote,
+	Highlight,
 	CKFinder,
-	EasyImage,
 	Heading,
+	Font,
 	Image,
 	ImageCaption,
 	ImageStyle,
@@ -54,7 +64,13 @@ ClassicEditor.builtinPlugins = [
 	Paragraph,
 	PasteFromOffice,
 	Table,
-	TableToolbar
+	TableToolbar,
+	CodeBlock,
+	TodoList,
+	Alignment,
+	Title,
+	HorizontalLine,
+	WordCount
 ];
 
 // Editor configuration.
@@ -63,21 +79,28 @@ ClassicEditor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
+			'undo',
+			'redo',
+			'|',
 			'bold',
 			'italic',
 			'link',
 			'bulletedList',
 			'numberedList',
+			'todoList',
 			'|',
+			'alignment',
 			'indent',
 			'outdent',
 			'|',
 			'imageUpload',
 			'blockQuote',
+			'codeBlock',
 			'insertTable',
-			'mediaEmbed',
-			'undo',
-			'redo'
+			'horizontalLine',
+			'mediaEmbed'
+
+
 		]
 	},
 	image: {
